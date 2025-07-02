@@ -1,0 +1,27 @@
+{
+  "name": "bookable-mcp-server-claude-desktop-installation",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "One-click connector to Bookable remote MCP via SSE",
+  "main": "index.js",
+  "scripts": {
+    "clean": "rm -f *.dxt",
+    "build": "node_modules/.bin/dxt pack"
+  },
+  "dependencies": {
+    "mcp-remote": "^0.1.17"
+  },
+  "devDependencies": {
+    "@anthropic-ai/dxt": "^0.2.0"
+  },
+  "keywords": [
+    "booking",
+    "venues",
+    "restaurants",
+    "pub",
+    "bar",
+    "rms"
+  ],
+  "author": "Bookable <hello@bookabletech.com>",
+  "license": "MIT"
+}

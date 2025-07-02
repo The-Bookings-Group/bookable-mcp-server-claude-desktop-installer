@@ -1,0 +1,85 @@
+{
+  "dxt_version": "0.1",
+  "name": "bookable-mcp-server-claude-desktop-installation",
+  "display_name": "One-click connector to Bookable remote MCP via SSE",
+  "version": "1.0.0",
+  "description": "A simple, one-click solution to connect to Bookable's MCP server using SSE connection.",
+  "author": {
+    "name": "Bookable",
+    "email": "hello@bookabletech.com"
+  },
+  "homepage": "https://www.bookabletech.com/",
+  "documentation": "https://docs.bookabletech.com/",
+  "icon": "icon.svg",
+  "server": {
+    "type": "node",
+    "entry_point": "npx",
+    "mcp_config": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "${user_config.remote_url}",
+        "--transport",
+        "sse-only"
+      ],
+      "env": {
+      }
+    }
+  },
+  "tools": [
+    {
+      "name": "authenticate",
+      "description": "Authenticates the client using OAuth2 client credentials flow to obtain an access token."
+    },
+    {
+      "name": "get_venues",
+      "description": "Get a paginated list of venues (restaurants, pubs, bars, etc.)."
+    },
+    {
+      "name": "get_venue_by_id",
+      "description": "Get a venue by its ID."
+    },
+    {
+      "name": "check_venue_availability",
+      "description": "Check the availability of a venue."
+    },
+    {
+      "name": "create_venue_booking",
+      "description": "Create a new venue booking."
+    },
+    {
+      "name": "get_venue_bookings",
+      "description": "Get a paginated list of venue bookings."
+    },
+    {
+      "name": "get_venue_booking_by_id",
+      "description": "Get an existing booking by its ID."
+    },
+    {
+      "name": "update_venue_booking",
+      "description": "Update an existing booking by its ID."
+    },
+    {
+      "name": "cancel_venue_booking",
+      "description": "Cancel an existing booking by its ID."
+    }
+  ],
+  "keywords": [
+    "booking",
+    "venues",
+    "restaurants",
+    "pub",
+    "bar",
+    "rms"
+  ],
+  "license": "MIT",
+  "user_config": {
+    "remote_url": {
+      "type": "string",
+      "title": "Remote URL",
+      "description": "The URL of the remote MCP server.",
+      "default": "http://localhost:8090/sse"
+    }
+  }
+}
