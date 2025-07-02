@@ -1,9 +1,7 @@
 {
   "name": "bookable-mcp-server-claude-desktop-installation",
   "version": "1.0.0",
-  "type": "module",
   "description": "One-click connector to Bookable remote MCP via SSE",
-  "main": "index.js",
   "scripts": {
     "clean": "rm -f *.dxt",
     "build": "node_modules/.bin/dxt pack"
