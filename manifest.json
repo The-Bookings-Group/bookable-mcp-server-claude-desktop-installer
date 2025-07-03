@@ -79,7 +79,14 @@
       "type": "string",
       "title": "Remote URL",
       "description": "The URL of the remote MCP server.",
-      "default": "http://localhost:8090/sse"
+      "default": "https://bookable-mcp-server-952111608951.europe-west2.run.app/sse"
+    }
+  },
+  "compatibility": {
+    "claude_desktop": ">=0.10.0",
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=16.0.0"
     }
   }
 }
