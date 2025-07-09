@@ -1,9 +1,9 @@
 {
   "dxt_version": "0.1",
   "name": "bookable-mcp-server-claude-desktop-installation",
-  "display_name": "One-click connector to Bookable remote MCP via SSE",
+  "display_name": "One-click connector to Bookable remote MCP",
   "version": "1.0.0",
-  "description": "A simple, one-click solution to connect to Bookable's MCP server using SSE connection.",
+  "description": "A simple, one-click solution to connect to Bookable's MCP server using Streamable HTTP connection.",
   "author": {
     "name": "Bookable",
     "email": "hello@bookabletech.com"
@@ -13,25 +13,24 @@
   "icon": "icon.svg",
   "server": {
     "type": "node",
-    "entry_point": "npx",
+    "entry_point": "npm",
     "mcp_config": {
-      "command": "npx",
+      "command": "npm",
       "args": [
-        "-y",
-        "mcp-remote",
-        "${user_config.remote_url}",
-        "--transport",
-        "sse-only"
+        "--prefix",
+        "${__dirname}",
+        "run",
+        "start"
       ],
       "env": {
+        "BOOKABLE_MCP_SERVER": "${user_config.mcp_server_url}",
+        "BOOKABLE_AUTH_SERVER": "${user_config.authorization_server_url}",
+        "BOOKABLE_CLIENT_ID": "${user_config.client_id}",
+        "BOOKABLE_CLIENT_SECRET": "${user_config.client_secret}"
       }
     }
   },
   "tools": [
-    {
-      "name": "authenticate",
-      "description": "Authenticates the client using OAuth2 client credentials flow to obtain an access token."
-    },
     {
       "name": "get_venues",
       "description": "Get a paginated list of venues (restaurants, pubs, bars, etc.)."
@@ -75,11 +74,30 @@
   ],
   "license": "MIT",
   "user_config": {
-    "remote_url": {
+    "mcp_server_url": {
       "type": "string",
-      "title": "Remote URL",
+      "title": "MCP Server URL",
       "description": "The URL of the remote MCP server.",
-      "default": "https://bookable-mcp-server-952111608951.europe-west2.run.app/sse"
+      "default": "http://localhost:8080/mcp"
+    },
+    "authorization_server_url": {
+      "type": "string",
+      "title": "Authorization Server URL",
+      "description": "The URL of the OAuth2 authorization server.",
+      "default": "https://bookabletech.uk.auth0.com"
+    },
+    "client_id": {
+      "type": "string",
+      "title": "Client ID",
+      "description": "The Client ID for the OAuth2 client credentials flow.",
+      "required": true
+    },
+    "client_secret": {
+      "type": "string",
+      "title": "Client Secret",
+      "description": "The Client Secret for the OAuth2 client credentials flow.",
+      "sensitive": true,
+      "required": true
     }
   },
   "compatibility": {

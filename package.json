@@ -1,10 +1,12 @@
 {
   "name": "bookable-mcp-server-claude-desktop-installation",
   "version": "1.0.0",
-  "description": "One-click connector to Bookable remote MCP via SSE",
+  "description": "One-click connector to Bookable remote MCP",
   "scripts": {
     "clean": "rm -f *.dxt",
-    "build": "node_modules/.bin/dxt pack"
+    "build": "node_modules/.bin/dxt pack",
+    "authenticate": "export BOOKABLE_ACCESS_TOKEN=$(curl --silent --request POST --url $BOOKABLE_AUTH_SERVER/oauth/token --header 'content-type: application/json' --data '{\"client_id\":\"$BOOKABLE_CLIENT_ID\", \"client_secret\":\"$BOOKABLE_CLIENT_SECRET\", \"audience\":\"api.bookabletech.com\", \"grant_type\":\"client_credentials\"}' | sed -n 's/.*\"access_token\":\"\\([^\"]*\\)\".*/\\1/p')",
+    "start": "npm run authenticate && npx -y mcp-remote $BOOKABLE_MCP_SERVER --allow-http --transport http-only --header \"Authorization: Bearer $BOOKABLE_ACCESS_TOKEN\""
   },
   "dependencies": {
     "mcp-remote": "^0.1.17"
