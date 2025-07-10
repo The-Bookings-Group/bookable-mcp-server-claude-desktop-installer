@@ -20,7 +20,8 @@
         "--prefix",
         "${__dirname}",
         "run",
-        "start"
+        "start",
+        "--silent"
       ],
       "env": {
         "BOOKABLE_MCP_SERVER": "${user_config.mcp_server_url}",
