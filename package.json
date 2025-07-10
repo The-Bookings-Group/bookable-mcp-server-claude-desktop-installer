@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "One-click connector to Bookable remote MCP",
   "scripts": {
-    "clean": "rm -f *.dxt",
+    "clean": "rm -f *.dxt && rm -f .bookable_token",
     "build": "node_modules/.bin/dxt pack",
     "authenticate": "RESPONSE=$(curl --silent --show-error --fail --request POST --url \"$BOOKABLE_AUTH_SERVER/oauth/token\" --header 'content-type: application/json' --data \"{\\\"client_id\\\":\\\"$BOOKABLE_CLIENT_ID\\\", \\\"client_secret\\\":\\\"$BOOKABLE_CLIENT_SECRET\\\", \\\"audience\\\":\\\"api.bookabletech.com\\\", \\\"grant_type\\\":\\\"client_credentials\\\"}\" 2>&1) && TOKEN=$(echo \"$RESPONSE\" | sed -n 's/.*\"access_token\":\"\\([^\"]*\\)\".*/\\1/p') && if [ -z \"$TOKEN\" ]; then echo 'Error: Failed to extract access token from response:' && echo \"$RESPONSE\" && exit 1; else echo \"$TOKEN\" > .bookable_token; fi",
     "start": "npm run authenticate && export BOOKABLE_ACCESS_TOKEN=$(cat .bookable_token 2>/dev/null || echo '') && if [ -z \"$BOOKABLE_ACCESS_TOKEN\" ]; then echo 'Error: No access token available. Authentication may have failed.' && exit 1; fi && npx -y mcp-remote $BOOKABLE_MCP_SERVER --allow-http --transport http-only --header \"Authorization: Bearer $BOOKABLE_ACCESS_TOKEN\""
