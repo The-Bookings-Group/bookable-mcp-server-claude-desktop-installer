@@ -79,7 +79,7 @@
       "type": "string",
       "title": "MCP Server URL",
       "description": "The URL of the remote MCP server.",
-      "default": "http://localhost:8080/mcp"
+      "default": "https://mcp-staging.bookabletech.com/mcp"
     },
     "authorization_server_url": {
       "type": "string",
