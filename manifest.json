@@ -79,7 +79,7 @@
       "type": "string",
       "title": "MCP Server URL",
       "description": "The URL of the remote MCP server.",
-      "default": "https://mcp-staging.bookabletech.com/mcp"
+      "default": "https://mcp-staging.bookabletech.com"
     },
     "authorization_server_url": {
       "type": "string",

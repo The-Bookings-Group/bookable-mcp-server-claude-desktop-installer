@@ -89,7 +89,7 @@ For testing purposes, you can use the default values from the manifest.json:
 
 ```bash
 # Set environment variables with default test values
-  export BOOKABLE_MCP_SERVER="http://localhost:8080/mcp"
+  export BOOKABLE_MCP_SERVER="https://mcp-staging.bookabletech.com"
   export BOOKABLE_AUTH_SERVER="https://bookabletech.uk.auth0.com"
   export BOOKABLE_CLIENT_ID="YOUR_CLIENT_ID"
   export BOOKABLE_CLIENT_SECRET="YOUR_CLIENT_SECRET"
