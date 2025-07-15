@@ -1,63 +1,66 @@
-# Bookable MCP Server - Claude Desktop Installation
+# Bookable MCP Server - Claude Desktop Installer
 
-A Claude Desktop one-click connector to Bookable's remote MCP (Message Control Protocol) server using Streamable HTTP connection.
+A Claude Desktop extension that provides a seamless connection to Bookable's remote MCP (Message Control Protocol) server using Streamable HTTP connection.
 
 ## Features
 
-- Simple, one-click installation
+- Pre-compiled installer for easy installation
 - Seamless connection to Bookable's MCP server
 - Lightweight and efficient
+- Configurable MCP server settings
 
-## Prerequisites
+## Quick Start
 
-- [Node.js (v16 or higher)](https://nodejs.org/en/download)
-- npm (comes with Node.js)
+1. Get the installer:
+   - Download the latest `.dxt` file from the [Releases](https://github.com/The-Bookings-Group/bookable-mcp-server-claude-desktop-installation/releases) page
 
-## Installation
+2. Install in Claude Desktop:
+   - Open Claude Desktop
+   - Go to `Settings` > `Extensions` > `Install from file`
+   - Select the downloaded `.dxt` file
 
-1. Clone this repository:
+3. Configure the connection:
+   - In `Settings` > `Extensions`, find "One-click connector to Bookable remote MCP"
+   - Click settings icon
+   - Enter your Bookable credentials:
+      - MCP Server URL
+      - Authentication Server URL
+      - Client ID and Client Secret (provided by Bookable)
+
+## Building from Source (Optional)
+
+If you prefer to build the installer yourself:
+
+1. Prerequisites:
+   - [Node.js (v16 or higher)](https://nodejs.org/en/download)
+   - npm (comes with Node.js)
+
+2. Clone the repository:
 ```bash
   git clone https://github.com/The-Bookings-Group/bookable-mcp-server-claude-desktop-installation
   cd bookable-mcp-server-claude-desktop-installation
 ```
 
-2. Install dependencies:
+3. Install dependencies:
 ```bash
   npm install
 ```
 
-## Usage
+4. Build the package:
+```bash
+  npm run build
+```
 
-1. Build the package:
+This will generate a `.dxt` file in the project directory that you can install in Claude Desktop.
 
-   ```bash
-   npm run build
-   ```
-   This will generate a `.dxt` file in the project directory.
+## Additional Configuration
 
+You can verify the current configuration or troubleshoot connection issues by:
+1. Going to `Settings` > `Extensions`
+2. Finding the Bookable MCP Server connector
+3. Checking the extension's logs in the Claude Desktop developer tools
 
-2. Install in Claude Desktop:
-   - Open Claude Desktop application
-   - Go to `Settings` > `Extensions`
-   - Click on `Install from file`
-   - Select the generated `.dxt` file from this project
-   - Restart Claude Desktop if prompted
-
-
-3. After installation, the Bookable MCP Server connector will be available in your Claude Desktop extensions.
-
-## Claude Desktop Configuration
-
-To change the remote MCP server URL:
-
-1. In Claude Desktop, go to `Settings` > `Extensions`.
-2. Find "One-click connector to Bookable remote MCP via SSE" in the list.
-3. Click on the extension's settings/gear icon.
-4. Update the required fields.
-5. Save the settings.
-6. The extension will automatically reconnect with the updated configuration.
-
-If you need to verify the current configuration or connection status, you can check the extension's logs in the Claude Desktop developer tools.
+The extension will automatically reconnect whenever you update the configuration.
 
 ## Development
 
@@ -78,7 +81,7 @@ The following environment variables need to be set:
 - `BOOKABLE_MCP_SERVER` - MCP server endpoint URL
 - `BOOKABLE_AUTH_SERVER` - OAuth2 authorization server URL
 - `BOOKABLE_CLIENT_ID` - OAuth2 client ID
-- `BOOKABLE_CLIENT_SECRET` - OAuth2 client secret  
+- `BOOKABLE_CLIENT_SECRET` - OAuth2 client secret
 
 #### Testing with Default Values
 

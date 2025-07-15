@@ -1,5 +1,5 @@
 {
-  "name": "bookable-mcp-server-claude-desktop-installation",
+  "name": "bookable-mcp-server-claude-desktop-installer",
   "version": "1.0.0",
   "description": "One-click connector to Bookable remote MCP",
   "scripts": {

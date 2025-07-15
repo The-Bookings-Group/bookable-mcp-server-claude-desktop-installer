@@ -1,6 +1,6 @@
 {
   "dxt_version": "0.1",
-  "name": "bookable-mcp-server-claude-desktop-installation",
+  "name": "bookable-mcp-server-claude-desktop-installer",
   "display_name": "One-click connector to Bookable remote MCP",
   "version": "1.0.0",
   "description": "A simple, one-click solution to connect to Bookable's MCP server using Streamable HTTP connection.",
