@@ -37,8 +37,8 @@ If you prefer to build the installer yourself:
 
 2. Clone the repository:
 ```bash
-  git clone https://github.com/The-Bookings-Group/bookable-mcp-server-claude-desktop-installation
-  cd bookable-mcp-server-claude-desktop-installation
+  git clone https://github.com/The-Bookings-Group/bookable-mcp-server-claude-desktop-installer
+  cd bookable-mcp-server-claude-desktop-installer
 ```
 
 3. Install dependencies:
